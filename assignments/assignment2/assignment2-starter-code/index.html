@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lunch Check</title>
+  <!-- Add the Angular and other necessary script files -->
+  <script src="./angular/angular.min.js"></script>
+  <script src="./app.js"></script>
+  <!-- You can add additional scripts and stylesheets as needed -->
+  <style>
+    /* Add some basic styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      color: #333;
+    }
+  </style>
+</head>
+<body ng-controller="MainController">
+  <div>
+    <h3>To Buy</h3>
+    
+    <ul>
+      <p ng-show="itemstobuy.length === 0">Everything is bought !</p>
+      <li ng-repeat="item in itemstobuy">
+         Buy {{ item.name }} {{ item.quantity }} quantity
+        <button ng-click="moveItem($index)">Buy</button>
+      </li>
+    </ul>
+
+    <h3>Already Bought</h3>
+    <ul>
+      <p ng-show="itemsbought.length === 0">Nothing bought yet !</p>
+      <li ng-repeat="item in itemsbought">
+       Bought {{ item.quantity }} {{ item.name }}
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
